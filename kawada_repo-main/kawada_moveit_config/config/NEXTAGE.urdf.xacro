@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="NEXTAGE">
+    <!-- Use $(find ...) for portable paths -->
+    <xacro:arg name="initial_positions_file" 
+               default="$(find kawada_moveit_config)/config/initial_positions.yaml" />
+    
+    <!-- Set to true if using Gazebo, false for fake hardware -->
+    <xacro:arg name="use_gazebo" default="true" />
+
+    <!-- Conditionally include Gazebo plugin only if using Gazebo -->
+    <xacro:if value="$(arg use_gazebo)">
+        <gazebo>
+            <plugin filename="ign_ros2_control-system"
+                    name="ign_ros2_control::IgnitionROS2ControlPlugin">
+                <parameters>$(find kawada_moveit_config)/config/ros_controllers.yaml</parameters>
+            </plugin>
+        </gazebo>
+    </xacro:if>
+
+    <!-- Import NEXTAGE urdf file -->
+    <xacro:include filename="$(find nextage_fillie_open_description)/urdf/FillieOpen.urdf" />
+
+    <!-- Import cameras -->
+    <xacro:include filename="$(find kawada_moveit_config)/config/cameras.xacro"/>
+
+    <!-- Import ros2_control macros -->
+    <xacro:include filename="$(find kawada_moveit_config)/config/NEXTAGE.ros2_control.xacro"/>
+    <xacro:include filename="$(find kawada_moveit_config)/config/NEXTAGE_Left.ros2_control.xacro"/>
+
+    <!-- Instantiate the ros2_control macros for both arms -->
+    <xacro:NEXTAGE_ros2_control 
+        name="RightArmSystem" 
+        initial_positions_file="$(arg initial_positions_file)"/>
+    
+    <xacro:NEXTAGE_Left_ros2_control 
+        name="LeftArmSystem" 
+        initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

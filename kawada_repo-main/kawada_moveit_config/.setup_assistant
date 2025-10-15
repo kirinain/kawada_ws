@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: nextage_fillie_open_description
+    relative_path: urdf/FillieOpen.urdf
+  srdf:
+    relative_path: config/NEXTAGE.srdf
+  package_settings:
+    author_name: Kiriti Nain
+    author_email: kitinain@gmail.com
+    generated_timestamp: 1726858708
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
