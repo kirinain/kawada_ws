@@ -2,7 +2,7 @@
 
 A complete dual-arm manipulation system for the NEXTAGE robot with ROS 2 Humble, Gazebo Fortress, and MoveIt 2.
 
-## 🤖 System Overview
+## System Overview
 
 - **Robot**: NEXTAGE dual-arm humanoid robot (6-DOF per arm, 12-DOF total)
 - **ROS Version**: ROS 2 Humble
@@ -10,33 +10,109 @@ A complete dual-arm manipulation system for the NEXTAGE robot with ROS 2 Humble,
 - **Motion Planning**: MoveIt 2 with OMPL
 - **Control Modes**: Joint-level and Cartesian space control
 
-## ✅ Features
+## Prerequisites & Installation
 
-- ✅ Dual-arm coordination (independent or simultaneous control)
-- ✅ Joint-level control via ROS 2 topics
-- ✅ Cartesian space control for end-effectors
-- ✅ MoveIt motion planning with collision avoidance
-- ✅ Gazebo simulation with physics
-- ✅ Pick-and-place ready workspace (tables + 5 objects)
-- ✅ RViz visualization
 
-## 📦 Package Structure
+### 1. Install ROS 2 Humble
+
+Follow the official installation guide: [ROS 2 Humble Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+
+```bash
+# Set locale
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Setup sources
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+# Install ROS 2 Humble Desktop
+sudo apt update
+sudo apt upgrade
+sudo apt install ros-humble-desktop
+```
+
+### 2. Install Gazebo Fortress
+
+Follow the official installation guide: [Gazebo Fortress Installation](https://gazebosim.org/docs/fortress/install_ubuntu)
+
+```bash
+# Install Gazebo Fortress
+sudo apt-get update
+sudo apt-get install lsb-release wget gnupg
+
+sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install ignition-fortress
+```
+
+### 3. Install ROS 2 - Gazebo Bridge
+
+```bash
+sudo apt install ros-humble-ros-gz
+```
+
+### 4. Install MoveIt 2
+
+Follow the official installation guide: [MoveIt 2 Installation](https://moveit.ros.org/install-moveit2/binary/)
+
+```bash
+sudo apt install ros-humble-moveit
+```
+
+### 5. Install Additional Dependencies
+
+```bash
+# ROS 2 Control packages
+sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gz-ros2-control
+
+# MoveIt plugins and tools
+sudo apt install ros-humble-moveit-planners-ompl ros-humble-moveit-simple-controller-manager
+
+# Visualization and tools
+sudo apt install ros-humble-rviz2 ros-humble-xacro ros-humble-joint-state-publisher-gui
+
+# Python dependencies
+sudo apt install python3-colcon-common-extensions
+```
+
+### 6. Setup ROS 2 Environment
+
+Add to your `~/.bashrc` or `~/.zshrc`:
+
+```bash
+source /opt/ros/humble/setup.bash  # or setup.zsh for zsh
+```
+
+Then source it:
+```bash
+source ~/.bashrc  # or ~/.zshrc
+```
+
+## Package Structure
 
 ```
 kawada/
 ├── kawada_repo-main/
-│   ├── kawada_moveit_config/          # MoveIt configuration
-│   │   ├── config/                     # SRDF, controllers, kinematics
-│   │   ├── launch/                     # Launch files
-│   │   ├── worlds/                     # Gazebo worlds
-│   │   └── scripts/                    # Python control scripts
-│   └── nextage_fillie_open_description/  # Robot URDF
-├── test_dual_arm_system.py            # System verification script
-├── demo_dual_arm_control.py           # Control demonstration
-└── SYSTEM_GUIDE.md                    # Complete usage guide
+│   ├── kawada_moveit_config/          
+│   │   ├── config/                     
+│   │   ├── launch/                     
+│   │   ├── worlds/                     
+│   │   └── scripts/                    
+│   └── nextage_fillie_open_description/  
+├── test_dual_arm_system.py            
+├── demo_dual_arm_control.py           
+└── SYSTEM_GUIDE.md                    
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Build the Workspace
 
@@ -64,9 +140,7 @@ This launches:
 python3 test_dual_arm_system.py
 ```
 
-Expected output: `🎉 ALL TESTS PASSED! System is fully operational.`
-
-## 🎮 Control Methods
+## Control Methods
 
 ### Joint-Level Control
 
@@ -108,21 +182,7 @@ ros2 topic pub /left_arm/cartesian_command geometry_msgs/msg/Twist "{
 2. Drag interactive marker to desired position
 3. Click "Plan" → "Execute"
 
-## 🌍 Workspace Setup
-
-### Scene Objects:
-- **Robot Table** (gray) at origin - robot base
-- **Work Table** (brown) at x=0.9m - object placement
-- **5 Colored Cubes** on work table:
-  - Red (y=-0.4m)
-  - Blue (y=-0.2m)
-  - Green (y=0.0m)
-  - Yellow (y=0.2m)
-  - Orange (y=0.4m)
-
-All objects at z=0.85m, within arm reach (~0.9m distance)
-
-## 🧪 Testing & Demos
+## Testing & Demos
 
 ### Comprehensive System Test
 ```bash
@@ -134,7 +194,7 @@ python3 test_dual_arm_system.py
 python3 demo_dual_arm_control.py
 ```
 
-## 📊 Available Topics
+## Available Topics
 
 ### Control:
 - `/right_arm/joint_commands` - Right arm joint control
@@ -182,57 +242,4 @@ python3 demo_dual_arm_control.py
 - `right_hand` - Right arm end effector
 - `left_hand` - Left arm end effector
 
-## 🛠️ Troubleshooting
 
-### Kill All Processes:
-```bash
-pkill -9 -f gazebo; pkill -9 -f rviz; pkill -9 -f ros2
-```
-
-### Relaunch:
-```bash
-ros2 launch kawada_moveit_config simple_dual_arm.launch.py
-```
-
-### Check System Status:
-```bash
-ros2 node list
-ros2 topic list
-ros2 control list_controllers
-```
-
-## 📚 Documentation
-
-- **System Guide**: `SYSTEM_GUIDE.md` - Complete usage manual
-- **Test Script**: `test_dual_arm_system.py` - Automated verification
-- **Demo Script**: `demo_dual_arm_control.py` - Control examples
-
-## 🎯 Use Cases
-
-- Dual-arm manipulation tasks
-- Pick-and-place operations
-- Coordinated bimanual assembly
-- Motion planning research
-- Robot learning experiments
-
-## 🤝 Contributing
-
-1. Make changes to configuration or launch files
-2. Test with `python3 test_dual_arm_system.py`
-3. Verify in simulation
-4. Commit changes
-
-## 📄 License
-
-See individual package licenses in `kawada_repo-main/`
-
-## 🆘 Support
-
-For issues or questions, refer to `SYSTEM_GUIDE.md` or run the test script for diagnostics.
-
----
-
-**System Status**: ✅ Fully Operational  
-**Last Tested**: October 2025  
-**ROS 2 Version**: Humble  
-**Gazebo Version**: Fortress
