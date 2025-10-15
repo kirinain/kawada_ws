@@ -236,4 +236,3 @@ For issues or questions, refer to `SYSTEM_GUIDE.md` or run the test script for d
 **Last Tested**: October 2025  
 **ROS 2 Version**: Humble  
 **Gazebo Version**: Fortress
-
