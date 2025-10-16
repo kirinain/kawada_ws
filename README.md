@@ -211,7 +211,7 @@ python3 demo_dual_arm_control.py
 - `/move_group/*` - Planning and execution
 - `/display_planned_path` - Trajectory visualization
 
-## 🔧 Configuration Files
+##  Configuration Files
 
 | File | Purpose |
 |------|---------|
@@ -222,7 +222,7 @@ python3 demo_dual_arm_control.py
 | `config/NEXTAGE.urdf.xacro` | Robot URDF |
 | `worlds/simple_workspace.sdf` | Gazebo world |
 
-## 📝 Robot Specifications
+##  Robot Specifications
 
 ### Degrees of Freedom:
 - **Right Arm**: 6 DOF

@@ -186,6 +186,38 @@ def generate_launch_description():
     )
     delayed_moveit = TimerAction(period=8.0, actions=[move_group_node, rviz_node])
 
+    # Camera Bridges - Bridge Gazebo camera topics to ROS 2
+    head_camera_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/head_camera/image@sensor_msgs/msg/Image[ignition.msgs.Image',
+            '/head_camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo',
+        ],
+        output='screen',
+        parameters=[{'use_sim_time': True}],
+        remappings=[
+            ('/head_camera/image', '/head_camera/image_raw'),
+        ]
+    )
+
+    rgbd_camera_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/rgbd_camera/image@sensor_msgs/msg/Image[ignition.msgs.Image',
+            '/rgbd_camera/depth_image@sensor_msgs/msg/Image[ignition.msgs.Image',
+            '/rgbd_camera/points@sensor_msgs/msg/PointCloud2[ignition.msgs.PointCloudPacked',
+            '/rgbd_camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo',
+        ],
+        output='screen',
+        parameters=[{'use_sim_time': True}],
+        remappings=[
+            ('/rgbd_camera/image', '/rgbd_camera/image_raw'),
+            ('/rgbd_camera/depth_image', '/rgbd_camera/depth/image_raw'),
+        ]
+    )
+
     return LaunchDescription([
         gz_sim,
         robot_state_publisher,
@@ -194,5 +226,7 @@ def generate_launch_description():
         delay_right_arm_controller,
         delay_left_arm_controller,
         delayed_moveit,
+        head_camera_bridge,
+        rgbd_camera_bridge,
     ])
 

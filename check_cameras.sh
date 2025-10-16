@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Script to check camera topics and help debug camera feeds
-echo "📷 Checking Camera Topics and Status..."
+echo " Checking Camera Topics and Status..."
 echo ""
 
 # Change to workspace directory
@@ -16,19 +16,19 @@ ros2 topic list 2>/dev/null | grep -E "(camera|image|depth)" || echo "No camera 
 echo ""
 echo "Camera topic details:"
 echo "Head Camera:"
-ros2 topic info /head_camera/image_raw 2>/dev/null || echo "  ❌ /head_camera/image_raw not available"
+ros2 topic info /head_camera/image_raw 2>/dev/null || echo "   /head_camera/image_raw not available"
 
 echo "RGBD Camera Color:"
-ros2 topic info /rgbd_camera/image_raw 2>/dev/null || echo "  ❌ /rgbd_camera/image_raw not available"
+ros2 topic info /rgbd_camera/image_raw 2>/dev/null || echo "   /rgbd_camera/image_raw not available"
 
 echo "RGBD Camera Depth:"
-ros2 topic info /rgbd_camera/depth/image_raw 2>/dev/null || echo "  ❌ /rgbd_camera/depth/image_raw not available"
+ros2 topic info /rgbd_camera/depth/image_raw 2>/dev/null || echo "   /rgbd_camera/depth/image_raw not available"
 
 echo "RGBD Point Cloud:"
-ros2 topic info /rgbd_camera/points 2>/dev/null || echo "  ❌ /rgbd_camera/points not available"
+ros2 topic info /rgbd_camera/points 2>/dev/null || echo "   /rgbd_camera/points not available"
 
 echo ""
-echo "🎯 To see camera feeds in RViz:"
+echo " To see camera feeds in RViz:"
 echo "1. Launch the robot: ./launch_robot.sh"
 echo "2. In RViz, check the 'Displays' panel"
 echo "3. Look for these displays:"

@@ -3,7 +3,7 @@
 # Helper script to launch the robot with cameras in Gazebo and RViz
 # Usage: ./launch_robot.sh
 
-echo "🤖 Launching NEXTAGE Robot with Dual Arm Control and Cameras..."
+echo " Launching NEXTAGE Robot with Dual Arm Control and Cameras..."
 echo ""
 
 # Change to workspace directory

@@ -33,6 +33,5 @@
          link_displacement_x="0.0325" link_displacement_y="0" link_displacement_z="0"
          link_rotation_x="0" link_rotation_y="${M_PI/2}" link_rotation_z="${link_head_camera_rot_z}" /> -->
 
-  <!-- TODO hand cameras can be added here with the very similar code as
-            headmount cameras. -->
+  
 </robot>

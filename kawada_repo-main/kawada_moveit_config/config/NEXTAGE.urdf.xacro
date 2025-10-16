@@ -23,6 +23,9 @@
     <!-- Import cameras -->
     <xacro:include filename="$(find kawada_moveit_config)/config/cameras.xacro"/>
 
+    <!-- Import gripper -->
+    <xacro:include filename="$(find nextage_fillie_open_description)/urdf/simple_gripper.xacro"/>
+
     <!-- Import ros2_control macros -->
     <xacro:include filename="$(find kawada_moveit_config)/config/NEXTAGE.ros2_control.xacro"/>
     <xacro:include filename="$(find kawada_moveit_config)/config/NEXTAGE_Left.ros2_control.xacro"/>
@@ -35,5 +38,10 @@
     <xacro:NEXTAGE_Left_ros2_control 
         name="LeftArmSystem" 
         initial_positions_file="$(arg initial_positions_file)"/>
+
+    <!-- Add gripper to right arm end-effector -->
+    <xacro:simple_gripper prefix="right" parent="RARM_JOINT5_Link">
+        <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    </xacro:simple_gripper>
 
 </robot>

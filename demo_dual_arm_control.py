@@ -49,7 +49,7 @@ class DualArmDemo(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Both arms at HOME")
+        print("    Both arms at HOME")
         time.sleep(2)
         
         # Forward reach position
@@ -62,7 +62,7 @@ class DualArmDemo(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Both arms reaching forward")
+        print("    Both arms reaching forward")
         time.sleep(2)
         
         # Spread arms
@@ -75,7 +75,7 @@ class DualArmDemo(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Arms spread apart")
+        print("    Arms spread apart")
         time.sleep(2)
         
         # Back to home
@@ -88,8 +88,8 @@ class DualArmDemo(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Back to HOME")
-        print("\n✅ Joint-level control demonstration complete!")
+        print("    Back to HOME")
+        print("\n Joint-level control demonstration complete!")
         
     def demo_cartesian_control(self):
         """Demonstrate Cartesian space control"""
@@ -115,7 +115,7 @@ class DualArmDemo(Node):
             self.left_cart_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Moved forward in Cartesian space")
+        print("    Moved forward in Cartesian space")
         time.sleep(2)
         
         # Move sideways
@@ -133,7 +133,7 @@ class DualArmDemo(Node):
             self.left_cart_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Moved sideways in opposite directions")
+        print("    Moved sideways in opposite directions")
         time.sleep(2)
         
         # Move up
@@ -151,10 +151,10 @@ class DualArmDemo(Node):
             self.left_cart_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Moved up in Cartesian space")
+        print("    Moved up in Cartesian space")
         time.sleep(2)
         
-        print("\n✅ Cartesian control demonstration complete!")
+        print("\n Cartesian control demonstration complete!")
         
     def demo_coordinated_motion(self):
         """Demonstrate coordinated dual-arm motion"""
@@ -180,7 +180,7 @@ class DualArmDemo(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Both arms reaching symmetrically")
+        print("    Both arms reaching symmetrically")
         time.sleep(2)
         
         # Mirror movements
@@ -193,7 +193,7 @@ class DualArmDemo(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Arms in mirrored configuration")
+        print("    Arms in mirrored configuration")
         time.sleep(2)
         
         # Return to home
@@ -206,8 +206,8 @@ class DualArmDemo(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
         
-        print("   ✅ Back to HOME position")
-        print("\n✅ Coordinated motion demonstration complete!")
+        print("    Back to HOME position")
+        print("\n Coordinated motion demonstration complete!")
         
     def run_all_demos(self):
         """Run all demonstration sequences"""
@@ -233,7 +233,7 @@ class DualArmDemo(Node):
         print("\n" + "="*70)
         print(" DEMONSTRATION COMPLETE!")
         print("="*70)
-        print("\n✨ All control modes demonstrated successfully!")
+        print("\n All control modes demonstrated successfully!")
         print("\nYou can now:")
         print("  - Control arms via /right_arm/joint_commands and /left_arm/joint_commands")
         print("  - Use Cartesian control via /right_arm/cartesian_command and /left_arm/cartesian_command")

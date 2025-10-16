@@ -77,8 +77,8 @@ class DualArmSystemTester(Node):
             rclpy.spin_once(self, timeout_sec=0.1)
             
         if self.joint_states_received:
-            print("✅ Robot is spawned in Gazebo")
-            print("✅ Joint states are being published")
+            print(" Robot is spawned in Gazebo")
+            print(" Joint states are being published")
             print(f"\nJoints detected ({len(self.joint_state_data.name)}):")
             
             # Check for both arm joints
@@ -94,13 +94,13 @@ class DualArmSystemTester(Node):
                 print(f"    - {joint}")
                 
             if len(rarm_joints) >= 6 and len(larm_joints) >= 6:
-                print("\n✅ Both arms have complete joint sets")
+                print("\n Both arms have complete joint sets")
                 return True
             else:
-                print("\n❌ Missing joints for one or both arms")
+                print("\n Missing joints for one or both arms")
                 return False
         else:
-            print("❌ No joint states received - robot may not be spawned")
+            print(" No joint states received - robot may not be spawned")
             return False
             
     def test_joint_control(self):
@@ -127,7 +127,7 @@ class DualArmSystemTester(Node):
             self.left_joint_pub.publish(left_cmd)
             time.sleep(0.1)
             
-        print("✅ Joint command topics are available:")
+        print(" Joint command topics are available:")
         print("  - /right_arm/joint_commands")
         print("  - /left_arm/joint_commands")
         print("  (Commands published successfully)")
@@ -157,7 +157,7 @@ class DualArmSystemTester(Node):
             self.left_cartesian_pub.publish(left_cart_cmd)
             time.sleep(0.1)
             
-        print("✅ Cartesian command topics are available:")
+        print(" Cartesian command topics are available:")
         print("  - /right_arm/cartesian_command")
         print("  - /left_arm/cartesian_command")
         print("  (Commands published successfully)")
@@ -170,13 +170,13 @@ class DualArmSystemTester(Node):
         print("="*60)
         
         print("Expected objects in Gazebo:")
-        print("  ✅ robot_table - Table for robot base")
-        print("  ✅ work_table - Table for objects")
-        print("  ✅ red_cube")
-        print("  ✅ blue_cube")
-        print("  ✅ green_cube")
-        print("  ✅ yellow_cube")
-        print("  ✅ orange_cube")
+        print("   robot_table - Table for robot base")
+        print("   work_table - Table for objects")
+        print("   red_cube")
+        print("   blue_cube")
+        print("   green_cube")
+        print("   yellow_cube")
+        print("   orange_cube")
         print("\nNote: Verify these objects are visible in Gazebo GUI")
         return True
         
@@ -187,10 +187,10 @@ class DualArmSystemTester(Node):
         print("="*60)
         
         print("Robot positioning:")
-        print("  ✅ Robot spawned at z=0.8 (on top of robot_table)")
-        print("  ✅ Work table at x=0.9 (0.9m in front of robot)")
-        print("  ✅ Cubes on work table at z=0.85")
-        print("  ✅ Distance to cubes: ~0.9m (within reach)")
+        print("   Robot spawned at z=0.8 (on top of robot_table)")
+        print("   Work table at x=0.9 (0.9m in front of robot)")
+        print("   Cubes on work table at z=0.85")
+        print("   Distance to cubes: ~0.9m (within reach)")
         print("\nArms can reach objects by moving forward ~0.5-0.7m")
         return True
         
@@ -223,7 +223,7 @@ class DualArmSystemTester(Node):
         print("="*70)
         
         for test_name, result in results:
-            status = "✅ PASS" if result else "❌ FAIL"
+            status = " PASS" if result else " FAIL"
             print(f"{status} - {test_name}")
             
         total_passed = sum([1 for _, r in results if r])
@@ -232,10 +232,10 @@ class DualArmSystemTester(Node):
         print(f"\nTotal: {total_passed}/{total_tests} tests passed")
         
         if total_passed == total_tests:
-            print("\n🎉 ALL TESTS PASSED! System is fully operational.")
+            print("\n ALL TESTS PASSED! System is fully operational.")
             return 0
         else:
-            print("\n⚠️  Some tests failed. Check the output above.")
+            print("\nWARNING: Some tests failed. Check the output above.")
             return 1
 
 

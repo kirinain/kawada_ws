@@ -140,6 +140,13 @@ def generate_launch_description():
         output="screen",
     )
 
+    right_gripper_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["right_gripper_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
     # 6. MoveGroup Node
     move_group_node = Node(
         package="moveit_ros_move_group",
@@ -226,6 +233,14 @@ def generate_launch_description():
             on_start=[TimerAction(period=1.0, actions=[left_arm_controller_spawner])],
         )
     )
+    
+    delay_gripper_controller = RegisterEventHandler(
+        OnProcessStart(
+            target_action=joint_state_broadcaster_spawner,
+            on_start=[TimerAction(period=1.0, actions=[right_gripper_controller_spawner])],
+        )
+    )
+    
     delayed_moveit = TimerAction(period=10.0, actions=[move_group_node, rviz_node])
 
     return LaunchDescription([
@@ -236,6 +251,7 @@ def generate_launch_description():
         delay_joint_state_broadcaster,
         delay_right_arm_controller,
         delay_left_arm_controller,
+        delay_gripper_controller,
         delayed_moveit,
         head_camera_bridge,
         rgbd_camera_bridge,
