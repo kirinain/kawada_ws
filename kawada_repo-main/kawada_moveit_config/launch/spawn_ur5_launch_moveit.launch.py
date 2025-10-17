@@ -95,7 +95,7 @@ def generate_launch_description():
         parameters=[robot_description, {'use_sim_time': True}],
     )
 
-    # 3. Spawn robot in Gazebo (on the robot table at elevated position)
+    # 3. Spawn robot in Gazebo (on table - Gazebo uses different origin than MoveIt)
     spawn_entity = Node(
         package='ros_gz_sim',
         executable='create',
@@ -105,7 +105,7 @@ def generate_launch_description():
             '-name', 'nextage',
             '-x', '0.0',
             '-y', '0.0',
-            '-z', '0.8',  # Elevated to be on top of the table
+            '-z', '0.8',  # Elevated on robot table
         ],
         parameters=[{'use_sim_time': True}],
     )
@@ -242,6 +242,14 @@ def generate_launch_description():
     )
     
     delayed_moveit = TimerAction(period=10.0, actions=[move_group_node, rviz_node])
+    
+    # Cube TF broadcaster
+    cube_tf_broadcaster = Node(
+        package='kawada_moveit_config',
+        executable='cube_tf_broadcaster.py',
+        name='cube_tf_broadcaster',
+        output='screen'
+    )
 
     return LaunchDescription([
         gz_sim,
@@ -255,4 +263,5 @@ def generate_launch_description():
         delayed_moveit,
         head_camera_bridge,
         rgbd_camera_bridge,
+        cube_tf_broadcaster,
     ])
