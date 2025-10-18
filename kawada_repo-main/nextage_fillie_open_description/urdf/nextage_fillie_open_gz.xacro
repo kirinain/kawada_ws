@@ -4,6 +4,7 @@
 
   <xacro:include filename="$(find nextage_fillie_open_description)/urdf/FillieOpen.urdf" />
   <xacro:include filename="$(find nextage_fillie_open_description)/urdf/nextage_fillie_open_gz_camera.xacro" />
+  <xacro:include filename="$(find nextage_fillie_open_description)/urdf/robotiq_2f_140_gripper.xacro" />
  
   <!-- <xacro:property name="M_PI" value="3.1415926535897931" />
   <xacro:property name="jnt_head_camera_displacement_x" value="0.0175" />
@@ -33,5 +34,14 @@
          link_displacement_x="0.0325" link_displacement_y="0" link_displacement_z="0"
          link_rotation_x="0" link_rotation_y="${M_PI/2}" link_rotation_z="${link_head_camera_rot_z}" /> -->
 
-  
+  <!-- Add Robotiq 2F-140 Gripper to right arm -->
+  <xacro:robotiq_gripper prefix="right" parent="RARM_JOINT5_Link">
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </xacro:robotiq_gripper>
+
+  <!-- Add Robotiq 2F-140 Gripper to left arm -->
+  <xacro:robotiq_gripper prefix="left" parent="LARM_JOINT5_Link">
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </xacro:robotiq_gripper>
+
 </robot>

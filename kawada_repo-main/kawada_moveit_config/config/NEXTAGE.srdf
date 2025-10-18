@@ -95,24 +95,86 @@
     <disable_collisions link1="RARM_JOINT4_Link" link2="RARM_JOINT5_Link" reason="Adjacent"/>
     
     <!-- Right arm gripper collision disabling -->
+    <disable_collisions link1="RARM_JOINT5_Link" link2="right_gripper_link" reason="Adjacent"/>
+    <disable_collisions link1="RARM_JOINT5_Link" link2="right_left_finger" reason="Adjacent"/>
+    <disable_collisions link1="RARM_JOINT5_Link" link2="right_right_finger" reason="Adjacent"/>
+    <disable_collisions link1="RARM_JOINT5_Link" link2="right_gripper_tcp" reason="Adjacent"/>
+    
     <disable_collisions link1="RARM_JOINT5_Link" link2="right_gripper_base_link" reason="Adjacent"/>
     <disable_collisions link1="RARM_JOINT5_Link" link2="right_gripper_left_finger" reason="Adjacent"/>
     <disable_collisions link1="RARM_JOINT5_Link" link2="right_gripper_right_finger" reason="Adjacent"/>
-    <disable_collisions link1="RARM_JOINT5_Link" link2="right_gripper_tcp" reason="Adjacent"/>
-    <disable_collisions link1="RARM_JOINT4_Link" link2="right_gripper_base_link" reason="Never"/>
+    
+    <disable_collisions link1="RARM_JOINT4_Link" link2="right_gripper_link" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT4_Link" link2="right_left_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT4_Link" link2="right_right_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT4_Link" link2="right_gripper_tcp" reason="Never"/>
     <disable_collisions link1="RARM_JOINT4_Link" link2="right_gripper_left_finger" reason="Never"/>
     <disable_collisions link1="RARM_JOINT4_Link" link2="right_gripper_right_finger" reason="Never"/>
-    <disable_collisions link1="RARM_JOINT4_Link" link2="right_gripper_tcp" reason="Never"/>
-    <disable_collisions link1="RARM_JOINT3_Link" link2="right_gripper_base_link" reason="Never"/>
-    <disable_collisions link1="RARM_JOINT3_Link" link2="right_gripper_left_finger" reason="Never"/>
-    <disable_collisions link1="RARM_JOINT3_Link" link2="right_gripper_right_finger" reason="Never"/>
+    
+    <disable_collisions link1="RARM_JOINT3_Link" link2="right_gripper_link" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT3_Link" link2="right_left_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT3_Link" link2="right_right_finger" reason="Never"/>
     <disable_collisions link1="RARM_JOINT3_Link" link2="right_gripper_tcp" reason="Never"/>
-    <disable_collisions link1="right_gripper_base_link" link2="right_gripper_left_finger" reason="Adjacent"/>
-    <disable_collisions link1="right_gripper_base_link" link2="right_gripper_right_finger" reason="Adjacent"/>
-    <disable_collisions link1="right_gripper_base_link" link2="right_gripper_tcp" reason="Adjacent"/>
-    <disable_collisions link1="right_gripper_left_finger" link2="right_gripper_right_finger" reason="Default"/>
-    <disable_collisions link1="right_gripper_left_finger" link2="right_gripper_tcp" reason="Adjacent"/>
-    <disable_collisions link1="right_gripper_right_finger" link2="right_gripper_tcp" reason="Adjacent"/>
+    
+    <disable_collisions link1="RARM_JOINT2_Link" link2="right_gripper_link" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT2_Link" link2="right_left_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT2_Link" link2="right_right_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT2_Link" link2="right_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="RARM_JOINT1_Link" link2="right_gripper_link" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT1_Link" link2="right_left_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT1_Link" link2="right_right_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT1_Link" link2="right_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="RARM_JOINT0_Link" link2="right_gripper_link" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT0_Link" link2="right_left_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT0_Link" link2="right_right_finger" reason="Never"/>
+    <disable_collisions link1="RARM_JOINT0_Link" link2="right_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="right_gripper_link" link2="right_left_finger" reason="Adjacent"/>
+    <disable_collisions link1="right_gripper_link" link2="right_right_finger" reason="Adjacent"/>
+    <disable_collisions link1="right_gripper_link" link2="right_gripper_tcp" reason="Adjacent"/>
+    <disable_collisions link1="right_left_finger" link2="right_right_finger" reason="Default"/>
+    <disable_collisions link1="right_left_finger" link2="right_gripper_tcp" reason="Adjacent"/>
+    <disable_collisions link1="right_right_finger" link2="right_gripper_tcp" reason="Adjacent"/>
+    
+    <!-- Left arm gripper collision disabling -->
+    <disable_collisions link1="LARM_JOINT5_Link" link2="left_gripper_link" reason="Adjacent"/>
+    <disable_collisions link1="LARM_JOINT5_Link" link2="left_left_finger" reason="Adjacent"/>
+    <disable_collisions link1="LARM_JOINT5_Link" link2="left_right_finger" reason="Adjacent"/>
+    <disable_collisions link1="LARM_JOINT5_Link" link2="left_gripper_tcp" reason="Adjacent"/>
+    
+    <disable_collisions link1="LARM_JOINT4_Link" link2="left_gripper_link" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT4_Link" link2="left_left_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT4_Link" link2="left_right_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT4_Link" link2="left_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="LARM_JOINT3_Link" link2="left_gripper_link" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT3_Link" link2="left_left_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT3_Link" link2="left_right_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT3_Link" link2="left_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="LARM_JOINT2_Link" link2="left_gripper_link" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT2_Link" link2="left_left_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT2_Link" link2="left_right_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT2_Link" link2="left_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="LARM_JOINT1_Link" link2="left_gripper_link" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT1_Link" link2="left_left_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT1_Link" link2="left_right_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT1_Link" link2="left_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="LARM_JOINT0_Link" link2="left_gripper_link" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT0_Link" link2="left_left_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT0_Link" link2="left_right_finger" reason="Never"/>
+    <disable_collisions link1="LARM_JOINT0_Link" link2="left_gripper_tcp" reason="Never"/>
+    
+    <disable_collisions link1="left_gripper_link" link2="left_left_finger" reason="Adjacent"/>
+    <disable_collisions link1="left_gripper_link" link2="left_right_finger" reason="Adjacent"/>
+    <disable_collisions link1="left_gripper_link" link2="left_gripper_tcp" reason="Adjacent"/>
+    <disable_collisions link1="left_left_finger" link2="left_right_finger" reason="Default"/>
+    <disable_collisions link1="left_left_finger" link2="left_gripper_tcp" reason="Adjacent"/>
+    <disable_collisions link1="left_right_finger" link2="left_gripper_tcp" reason="Adjacent"/>
     
     <!-- Additional arm-to-arm collision disabling -->
     <disable_collisions link1="LARM_JOINT3_Link" link2="LARM_JOINT5_Link" reason="Never"/>

@@ -14,6 +14,9 @@ controller_manager:
     right_gripper_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+    left_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
 joint_state_broadcaster:
   ros__parameters: {}
 
@@ -62,7 +65,19 @@ left_arm_controller:
 right_gripper_controller:
   ros__parameters:
     joints:
-      - right_gripper_left_finger_joint
+      - right_left_finger_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+
+left_gripper_controller:
+  ros__parameters:
+    joints:
+      - left_left_finger_joint
     command_interfaces:
       - position
     state_interfaces:

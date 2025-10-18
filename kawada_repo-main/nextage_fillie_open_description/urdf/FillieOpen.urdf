@@ -310,7 +310,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="file://$(find nextage_fillie_open_description)/urdf/meshes/visual/RARM_JOINT2_Link_mesh.obj"/>
+				<mesh filename="file://$(find nextage_fillie_open_description)/urdf/meshes/RARM_JOINT2_Link_mesh.dae"/>
 			</geometry>
 		</visual>
 		<collision>
@@ -490,7 +490,7 @@
 		<child link="RARM_JOINT0_Link"/>
 		<origin xyz="0.0 -0.155 0.520" rpy="0.26179938779914941 0 0"/>
 		<axis xyz="0 0 1"/>
-		<limit lower="-1.570796327" upper="1.570796327" effort="150" velocity="1.0"/>
+		<limit lower="-1.570796327" upper="1.570796327" effort="150" velocity="100.0"/>
 	</joint>
 
 	<!-- <xacro:transmission_nx_joint name="RARM_JOINT1" /> -->
@@ -499,7 +499,7 @@
 		<child link="RARM_JOINT1_Link"/>
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 		<axis xyz="0 1 0"/>
-		<limit lower="-2.443460953" upper="1.570796327" effort="150" velocity="1.0"/>
+		<limit lower="-2.443460953" upper="1.570796327" effort="150" velocity="100.0"/>
 	</joint>
 
 	<!-- <xacro:transmission_nx_joint name="RARM_JOINT2" /> -->
@@ -508,7 +508,7 @@
 		<child link="RARM_JOINT2_Link"/>
 		<origin xyz="0 -0.083 -0.250" rpy="0 0 0"/>
 		<axis xyz="0 1 0"/>
-		<limit lower="-1.221730476" upper="1.570796327" effort="150" velocity="1.0"/>
+		<limit lower="-1.221730476" upper="1.570796327" effort="150" velocity="100.0"/>
 	</joint>
 
 	<!-- <xacro:transmission_nx_joint name="RARM_JOINT3" /> -->
@@ -517,7 +517,7 @@
 		<child link="RARM_JOINT3_Link"/>
 		<origin xyz="0 0 -0.02" rpy="-0.26179938779914941 0 0"/>
 		<axis xyz="1 0 0"/>
-		<limit lower="-1.745329252" upper="3.141592654" effort="150" velocity="1.0"/>
+		<limit lower="-1.745329252" upper="3.141592654" effort="150" velocity="100.0"/>
 	</joint>
 
 	<!-- <xacro:transmission_nx_joint name="RARM_JOINT4" /> -->
@@ -526,7 +526,7 @@
 		<child link="RARM_JOINT4_Link"/>
 		<origin xyz="0.230 0 0" rpy="0 0 0"/>
 		<axis xyz="0 1 0"/>
-		<limit lower="-1.570796327" upper="1.570796327" effort="150" velocity="1.0"/>
+		<limit lower="-1.570796327" upper="1.570796327" effort="150" velocity="100.0"/>
 	</joint>
 
 	<!-- <xacro:transmission_nx_joint name="RARM_JOINT5" /> -->
@@ -535,7 +535,7 @@
 		<child link="RARM_JOINT5_Link"/>
 		<origin xyz="0.090 0 -0.051" rpy="0 0 0"/>
 		<axis xyz="0 0 1"/>
-		<limit lower="-2.9670597283903604" upper="2.9670597283903604" effort="150" velocity="1.0"/>
+		<limit lower="-2.9670597283903604" upper="2.9670597283903604" effort="150" velocity="100.0"/>
 	</joint>
 
 	<!-- Gazebo plugin for ROS Control -->

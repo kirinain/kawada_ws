@@ -27,5 +27,8 @@ install(FILES .setup_assistant DESTINATION share/${PROJECT_NAME})
 install(PROGRAMS
   scripts/pick_cube_moveit_py.py
   scripts/cube_tf_broadcaster.py
+  scripts/gripper_diagnostics.py
+  scripts/fast_positions.py
+  scripts/ultra_fast_test.py
   DESTINATION lib/${PROJECT_NAME}
 )
